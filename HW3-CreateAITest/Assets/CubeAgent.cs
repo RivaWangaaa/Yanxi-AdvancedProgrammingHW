@@ -30,6 +30,8 @@ public class CubeAgent : Agent
       base.OnEpisodeBegin();
       
       SetResetParamters();
+      
+      SetBallSize();
 
       //Reset cuble's rotation
       gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
@@ -105,5 +107,14 @@ public class CubeAgent : Agent
       var continuousActionsOut = actionsOut.ContinuousActions;
       continuousActionsOut[0] = -Input.GetAxis("Horizontal");
       continuousActionsOut[1] = Input.GetAxis("Vertical");
+   }
+
+   public void SetBallSize()
+   {
+      var ballScale = Random.Range(1f, 5f);
+      
+      m_BallRb.mass = ballScale;
+
+      ball.transform.localScale = new Vector3(ballScale, ballScale, ballScale);
    }
 }
