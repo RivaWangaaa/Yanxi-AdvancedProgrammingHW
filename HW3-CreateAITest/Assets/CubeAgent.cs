@@ -65,6 +65,9 @@ public class CubeAgent : Agent
       //(x,y,z) = 3
       sensor.AddObservation(ball.transform.position - gameObject.transform.position);
       
+      //observe ball mass/scale
+      sensor.AddObservation(m_BallRb.mass);
+      
    }
    
    public override void OnActionReceived(ActionBuffers actions)
